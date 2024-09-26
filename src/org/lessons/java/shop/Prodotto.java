@@ -12,7 +12,7 @@ Usate opportunamente attributi ed altri metodi per fare in modo che:
 - ci sia un metodo che valorizzi il codice prodotto con un numero random V
 - il prodotto esponga un metodo per avere il prezzo base V
 - il prodotto esponga un metodo per avere il prezzo comprensivo di iva V
-- il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome */
+- il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome V */ 
 
 
 public class Prodotto {
@@ -30,10 +30,6 @@ public class Prodotto {
 		int generaCodice() {
 			Random randomNumber = new Random();
 		    return randomNumber.nextInt(10000);}
-		
-		
-		String codiceStringa = codice + "";
-		
 	
 		double prezzoBase() {
 	        return prezzo;
@@ -44,10 +40,9 @@ public class Prodotto {
 	        return prezzo + importoIVA;
 	    }
 		
-		
-
-		
+		String nomeEsteso () {
+			return codice + " - " + nome;
+		}
 	}
-	
-	
+
 
