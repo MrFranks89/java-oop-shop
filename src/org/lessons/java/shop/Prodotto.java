@@ -9,9 +9,9 @@ import java.util.Random;
 - prezzo
 - iva
 Usate opportunamente attributi ed altri metodi per fare in modo che:
-- ci sia un metodo che valorizzi il codice prodotto con un numero random
-- il prodotto esponga un metodo per avere il prezzo base 
-- il prodotto esponga un metodo per avere il prezzo comprensivo di iva
+- ci sia un metodo che valorizzi il codice prodotto con un numero random V
+- il prodotto esponga un metodo per avere il prezzo base V
+- il prodotto esponga un metodo per avere il prezzo comprensivo di iva V
 - il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome */
 
 
@@ -23,10 +23,14 @@ public class Prodotto {
 		double prezzo;
 		double iva;
 		
+		Prodotto(){
+			codice = generaCodice();
+		}
+		
 		int generaCodice() {
 			Random randomNumber = new Random();
-		    int codice = randomNumber.nextInt(100000);
-			return codice;}
+		    return randomNumber.nextInt(10000);}
+		
 		
 		String codiceStringa = codice + "";
 		
@@ -36,13 +40,11 @@ public class Prodotto {
 	    }
 		
 		double calcolaPrezzoConIVA() {
-	        double aliquotaIVA = 22.0; // Aliquota IVA del 22%
-	        double importoIVA = prezzo * (aliquotaIVA / 100);
-	        return prezzo + importoIVA; // Prezzo totale con IVA
+	        double importoIVA = prezzo * (iva / 100);
+	        return prezzo + importoIVA;
 	    }
-
-
-		String nomeEsteso = "codiceStringa" + "nome";
+		
+		
 
 		
 	}
