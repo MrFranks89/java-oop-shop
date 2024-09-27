@@ -14,6 +14,7 @@ Usate opportunamente attributi ed altri metodi per fare in modo che:
 - il prodotto esponga un metodo per avere il prezzo comprensivo di iva V
 - il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome V */ 
 
+//Nello stesso package aggiungete una classe Main con metodo main nella quale testate tutte le funzionalità della classe Prodotto.
 
 public class Prodotto {
 
@@ -23,13 +24,24 @@ public class Prodotto {
 		double prezzo;
 		double iva;
 		
-		Prodotto(){
+	//	double iva = 1.22; così è un Default
+		
+		
+		void setCodice() {
+			Random ran = new Random();
+			
+			codice = ran.nextInt(10000);
+		}
+		
+		
+		
+	/*	Prodotto(){
 			codice = generaCodice();
 		}
 		
 		int generaCodice() {
 			Random randomNumber = new Random();
-		    return randomNumber.nextInt(10000);}
+		    return randomNumber.nextInt(10000);}*/
 	
 		double prezzoBase() {
 	        return prezzo;
