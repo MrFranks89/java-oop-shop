@@ -18,43 +18,62 @@ Usate opportunamente attributi ed altri metodi per fare in modo che:
 
 public class Prodotto {
 
-		int codice;
-		String nome;
-		String descrizione;
-		double prezzo;
-		double iva;
+		private int codice;
+		private String nome;
+		private String descrizione;
+		private double prezzo;
+		private double iva;
 		
-	//	double iva = 1.22; così è un Default
-		
-		
-		void setCodice() {
+		private void setCodice() {
 			Random ran = new Random();
-			
 			codice = ran.nextInt(10000);
 		}
 		
-		
-		
-	/*	Prodotto(){
-			codice = generaCodice();
+		private void setCodice(int codice) {
+			this.codice = codice;
 		}
 		
-		int generaCodice() {
-			Random randomNumber = new Random();
-		    return randomNumber.nextInt(10000);}*/
+		Prodotto(){
+			setCodice();
+			this.iva = 1.22;
+		}
+		
+		Prodotto(String nome, String descrizione, double prezzo){
+			this();
+			this.nome = nome;
+			this.descrizione = descrizione;
+			this.prezzo = prezzo;
+		}
 	
 		double prezzoBase() {
-	        return prezzo;
+	        return this.prezzo;
 	    }
 		
 		double calcolaPrezzoConIVA() {
-	        double importoIVA = prezzo * (iva / 100);
-	        return prezzo + importoIVA;
+	        double importoIVA = this.prezzo * (this.iva / 100);
+	        return this.prezzo + importoIVA;
 	    }
 		
 		String nomeEsteso () {
-			return codice + " - " + nome;
+			return this.codice + " - " + this.nome;
 		}
+		
+		public double getPrezzo(double prezzo) {
+			return this.prezzo;
+		}
+		
+		public String getDescrizione () {
+			return this.descrizione;
+		}
+		
+		public int getCodice() {
+			return this.codice;
+		}
+		
+		public void setDescrizione(String descrizione) {
+			this.descrizione = descrizione;
+		}
+		
 	}
 
 
